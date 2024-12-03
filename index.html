@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    body {
+        margin: 0;
+        background-color: #f5f7fa; 
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+        color: #333333; 
+        line-height: 1.6;
+    }
+
+    .topnav {
+        position: fixed;
+        z-index: 1000;
+        width: 100%;
+        text-align: left;
+        padding: 1% 2%;
+        background-color: #008cff;
+        border-bottom: 1px solid #005bb5;
+    }
+
+    .topnav a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.1rem;
+        margin-right: 15px;
+        transition: color 0.3s ease;
+    }
+
+    .topnav a:hover {
+        color: #002d77;
+    }
+
+    .main_container {
+        padding: 2%;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .greeting {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .greeting h1 {
+        font-size: 2.5rem;
+        color: #333333;
+        margin-bottom: 0.5rem;
+    }
+
+    .greeting p {
+        font-size: 1.2rem;
+        color: #555555;
+        margin: 0;
+    }
+    .profile_picture {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 2rem;
+        margin-top: 2rem;
+        border-radius: 50%;
+        max-width: 50%;
+    }
+
+
+
+    .post_box {
+        background-color: #ffffff;
+        border: 1px solid #dddddd;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .post_box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .post_box h2 {
+        margin-bottom: 0.5rem;
+        font-size: 1.5rem;
+        color: #008cff;
+    }
+
+    .post_box p {
+        margin-top: 0;
+        position: relative;
+        padding-left: 20px;
+        font-size: 1rem;
+        color: #555555;
+    }
+    ul {
+        list-style-type: disc;
+        padding-left: 20px;
+        margin-top: 0;
+    }
+
+    ul li {
+        margin-bottom: 10px;
+        font-size: 1rem;
+        color: #555555;
+    }
+
+
+
+</style>
+<head>
+    <meta charset="UTF-8">
+
+    <title>Tepes</title>
+</head>
+<body>
+<div class="topnav">
+    <a href="https://github.com/Tepes99">Github</a>
+    <a href="https://www.linkedin.com/in/teemu-saha-18090b19b/">LinkedIn</a>
+</div>
+<div class="main_container">
+    <div class="greeting">
+        <h1 >Teemu Saha</h1>
+        <p>Technical skills
+            wrapped in business
+            sense, served with
+            clear communication</p>
+        <img class="profile_picture" src="me.jpg" alt="Profile picture">
+
+        <p> Welcome to my homepage! I am a data professional with a strong affinity
+            for data engineering, science,
+            and analysis. My primary drive is to build robust solutions addressing
+            real-world business needs, pivoting cost centers into profit centers.
+            Alongside my expertise in data and coding, I bring valuable lessons
+            from banking, B2B SaaS, and market analysis in the medical field.</p>
+    </div>
+    <div>
+        <h1>Work Experience</h1>
+    </div>
+    <div class="post_box">
+        <h2>Success Clinic Oy</h2>
+        <ul>
+            <li>Transforming the company’s data stack from Excel files to TimescaleDB
+                and MinIO with data orchestration in Dagster as a part of a two-person team.</li>
+            <li>Introduced best practices to data science processes such as version
+                management & source control.</li>
+            <li>Brought MLOps practices with Docker, and orchestrated training, validation
+                and testing for time series models.</li>
+            <li>Consulted sister company Value Clinic on car sales predictions & made Databricks
+                to on-premises integrations.</li>
+        </ul>
+    </div>
+    <div class="post_box">
+        <h2>Alma Media: Business Insights</h2>
+        <ul>
+            <li>Designed & developed ETL pipeline with events, and perishing history for debt collection rating data.</li>
+            <li>Daily tools included Python, SQL, Pandas, Apache Airflow, AWS Redshift, Amazon Web Services.</li>
+        </ul>
+
+    </div>
+    <div class="post_box">
+        <h2>Danske Bank A/S</h2>
+        <ul>
+            <li>Arranged meetings with our customers for our investment advisors.</li>
+            <li>Trained new team members.</li>
+        </ul>
+    </div>
+    <div>
+        <h1>Projects</h1>
+    </div>
+    <div class="post_box">
+        <h2>Danske Bank A/S</h2>
+        <ul>
+            <li>Arranged meetings with our customers for our investment advisors.</li>
+            <li>Trained new team members.</li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>
