@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <style>
+    html {
+        scroll-behavior: smooth;
+    }
     body {
         margin: 0;
         background-color: #f5f7fa; 
@@ -59,8 +62,13 @@
         margin-right: auto;
         margin-bottom: 2rem;
         margin-top: 2rem;
+        border: 0 solid;
         border-radius: 50%;
+        border-color: #008cff;
         max-width: 50%;
+    }
+    .section_heading {
+        color: #333333;
     }
 
 
@@ -84,6 +92,12 @@
         margin-bottom: 0.5rem;
         font-size: 1.5rem;
         color: #008cff;
+    }
+    .post_box h4 {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+        font-size: 1rem;
+        color: #333333;
     }
 
     .post_box p {
@@ -115,8 +129,10 @@
 </head>
 <body>
 <div class="topnav">
+    <a href="#">Home</a>
     <a href="https://github.com/Tepes99">Github</a>
     <a href="https://www.linkedin.com/in/teemu-saha-18090b19b/">LinkedIn</a>
+    <a href="#projects">Projects</a>
 </div>
 <div class="main_container">
     <div class="greeting">
@@ -125,7 +141,7 @@
             wrapped in business
             sense, served with
             clear communication</p>
-        <img class="profile_picture" src="me.jpg" alt="Profile picture">
+        <img class="profile_picture" src="me.jpeg" alt="Profile picture">
 
         <p> Welcome to my homepage! I am a data professional with a strong affinity
             for data engineering, science,
@@ -135,23 +151,25 @@
             from banking, B2B SaaS, and market analysis in the medical field.</p>
     </div>
     <div>
-        <h1>Work Experience</h1>
+        <h1 class="section_heading">Work Experience</h1>
     </div>
     <div class="post_box">
         <h2>Success Clinic Oy</h2>
+        <h4>Data Scientist 1.2024 – Current</h4>
         <ul>
             <li>Transforming the company’s data stack from Excel files to TimescaleDB
                 and MinIO with data orchestration in Dagster as a part of a two-person team.</li>
             <li>Introduced best practices to data science processes such as version
                 management & source control.</li>
-            <li>Brought MLOps practices with Docker, and orchestrated training, validation
-                and testing for time series models.</li>
+            <li>Brought MLOps practices with Docker, and orchestrated pipeline for training, validation
+                and testing of time series prediction models.</li>
             <li>Consulted sister company Value Clinic on car sales predictions & made Databricks
                 to on-premises integrations.</li>
         </ul>
     </div>
     <div class="post_box">
         <h2>Alma Media: Business Insights</h2>
+        <h4>Data Engineer Trainee 3.2023 - 12.2023</h4>
         <ul>
             <li>Designed & developed ETL pipeline with events, and perishing history for debt collection rating data.</li>
             <li>Daily tools included Python, SQL, Pandas, Apache Airflow, AWS Redshift, Amazon Web Services.</li>
@@ -160,16 +178,17 @@
     </div>
     <div class="post_box">
         <h2>Danske Bank A/S</h2>
+        <h4>Retail Banker Associate 8.2020 – 12.2021</h4>
         <ul>
             <li>Arranged meetings with our customers for our investment advisors.</li>
             <li>Trained new team members.</li>
         </ul>
     </div>
     <div>
-        <h1>Projects</h1>
+        <h1 id="projects" class="section_heading">Projects</h1>
     </div>
     <div class="post_box">
-        <h2>Danske Bank A/S</h2>
+        <h2>Financial Portfolio Builder Dash App</h2>
         <ul>
             <li>Arranged meetings with our customers for our investment advisors.</li>
             <li>Trained new team members.</li>
