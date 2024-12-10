@@ -1,0 +1,117 @@
+html, body {
+    scroll-behavior: smooth;
+}
+body {
+    margin: 0;
+    background-color: #f5f7fa;
+    font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+    color: #333333;
+    line-height: 1.6;
+}
+
+.topnav {
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    text-align: left;
+    padding: 1% 2%;
+    background-color: #005bb5; /* alternative 008cff*/
+    border-bottom: solid #005bb5;
+}
+
+.topnav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+
+.topnav a:hover {
+    color: #002d77;
+}
+
+.main_container {
+    padding: 2%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.greeting {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.greeting h1 {
+    font-size: 2.5rem;
+    color: #333333;
+    margin-bottom: 0.5rem;
+}
+
+.greeting p {
+    font-size: 1.2rem;
+    color: #555555;
+    margin: 0;
+}
+.profile_picture {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    border: 0 solid;
+    border-radius: 50%;
+    border-color: #008cff;
+    max-width: 50%;
+}
+.section_heading {
+    color: #333333;
+}
+
+
+
+.post_box {
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.post_box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.post_box h2 {
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    color: #005bb5;
+}
+.post_box h4 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: #333333;
+}
+
+.post_box p {
+    margin-top: 0;
+    position: relative;
+    padding-left: 20px;
+    font-size: 1rem;
+    color: #555555;
+}
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-top: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #555555;
+}
