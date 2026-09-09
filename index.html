@@ -4,60 +4,405 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teemu Saha</title>
+    <meta name="description" content="Teemu Saha — data professional. A static site coded agentically on a self-hosted NixOS server.">
+    <title>Teemu Saha — Data Professional</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --paper: #f5edda;
+            --paper-deep: #e5d9bd;
+            --ink: #211d16;
+            --ink-soft: #3a352b;
+            --faded: #6f6551;
+            --rule: rgba(33, 29, 22, 0.28);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
             margin: 0;
-            background: #1a1a2e;
-            color: #eaeaea;
+            font-family: "Lora", Georgia, "Times New Roman", serif;
+            color: var(--ink);
+            background-color: var(--paper-deep);
+            background-image: radial-gradient(circle at 50% -10%, rgba(255, 255, 255, 0.35), transparent 60%);
+            line-height: 1.6;
         }
-        .container {
-            text-align: center;
+
+        .page {
+            max-width: 1000px;
+            margin: clamp(0px, 3vw, 2.5rem) auto;
+            min-height: 100vh;
+            background:
+                radial-gradient(1200px 400px at 50% -10%, rgba(120, 90, 40, 0.07), transparent 60%),
+                radial-gradient(900px 350px at 95% 105%, rgba(120, 90, 40, 0.06), transparent 60%),
+                var(--paper);
+            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08), 0 24px 48px -24px rgba(40, 30, 10, 0.5);
         }
-        h1 {
-            margin-bottom: 0.25rem;
+
+        /* ---------- Masthead ---------- */
+        .masthead {
+            padding: 0 clamp(1rem, 4vw, 2.5rem);
+            border-bottom: 3px solid var(--ink);
         }
-        p {
-            margin-top: 0;
-            color: #a0a0b8;
-        }
-        .links {
-            margin-top: 2rem;
+
+        .masthead-top {
             display: flex;
+            justify-content: space-between;
             gap: 1rem;
+            padding: 0.6rem 0 0.55rem;
+            border-bottom: 1px solid var(--rule);
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--faded);
+            white-space: nowrap;
+        }
+
+        .masthead-title {
+            margin: 1.4rem 0 0.2rem;
+            text-align: center;
+            font-family: "Playfair Display", Georgia, serif;
+            font-weight: 900;
+            font-size: clamp(3rem, 11vw, 6.5rem);
+            line-height: 1;
+            letter-spacing: 0.01em;
+        }
+
+        .masthead-sub {
+            margin: 0.6rem 0 1.2rem;
+            text-align: center;
+            font-size: clamp(0.6rem, 1.8vw, 0.8rem);
+            font-weight: 600;
+            letter-spacing: 0.38em;
+            text-transform: uppercase;
+            color: var(--ink-soft);
+        }
+
+        /* ---------- Top navigation ---------- */
+        .topnav {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            display: flex;
+            flex-wrap: wrap;
             justify-content: center;
+            gap: 0.75rem;
+            padding: 0.8rem clamp(1rem, 4vw, 2rem);
+            background: var(--paper);
+            border-bottom: 1px solid var(--ink);
         }
-        .links a {
+
+        .topnav a {
             display: inline-block;
-            padding: 0.6rem 1.2rem;
-            border-radius: 8px;
-            background: #16213e;
-            color: #eaeaea;
+            padding: 0.55rem 1.2rem;
+            border: 1px solid var(--ink);
+            color: var(--ink);
             text-decoration: none;
-            border: 1px solid #2a2a4a;
-            transition: background 0.2s, transform 0.2s;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            transition: background 0.15s ease, color 0.15s ease;
         }
-        .links a:hover {
-            background: #0f3460;
-            transform: translateY(-2px);
+
+        .topnav a:hover,
+        .topnav a:focus-visible {
+            background: var(--ink);
+            color: var(--paper);
+        }
+
+        /* ---------- Lead ---------- */
+        .lead {
+            text-align: center;
+            padding: clamp(1.8rem, 5vw, 3rem) clamp(1.2rem, 5vw, 3.5rem) clamp(1.4rem, 4vw, 2.2rem);
+        }
+
+        .headline {
+            margin: 0 auto;
+            max-width: 22ch;
+            font-family: "Playfair Display", Georgia, serif;
+            font-weight: 700;
+            font-size: clamp(1.7rem, 5vw, 2.9rem);
+            line-height: 1.15;
+            text-wrap: balance;
+        }
+
+        .deck {
+            margin: 0.9rem auto 0;
+            max-width: 52ch;
+            font-style: italic;
+            font-size: clamp(0.95rem, 2.4vw, 1.1rem);
+            color: var(--faded);
+        }
+
+        /* ---------- About ---------- */
+        .about {
+            padding: 0 clamp(1.2rem, 5vw, 3.5rem) clamp(2rem, 5vw, 3rem);
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            margin: 0 0 1.6rem;
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .section-title::before,
+        .section-title::after {
+            content: "";
+            flex: 1;
+            border-top: 1px solid var(--ink);
+        }
+
+        .section-title::before {
+            border-bottom: 3px double var(--ink);
+            border-top: none;
+            height: 5px;
+        }
+
+        .section-title::after {
+            border-top: 3px double var(--ink);
+            height: 5px;
+        }
+
+        .columns {
+            columns: 2;
+            column-gap: 2.75rem;
+            column-rule: 1px solid var(--rule);
+        }
+
+        .columns p {
+            margin: 0 0 1.05em;
+            text-align: justify;
+            hyphens: auto;
+            -webkit-hyphens: auto;
+        }
+
+        .columns p:first-of-type::first-letter {
+            float: left;
+            font-family: "Playfair Display", Georgia, serif;
+            font-weight: 900;
+            font-size: 3.6em;
+            line-height: 0.82;
+            padding-right: 0.14em;
+            padding-top: 0.05em;
+        }
+
+        /* ---------- In Brief box ---------- */
+        .brief {
+            margin-top: 2.2rem;
+            padding: 1.3rem 1.5rem 1.5rem;
+            border: 1px solid var(--ink);
+            outline: 3px double var(--rule);
+            outline-offset: 3px;
+            background: rgba(255, 255, 255, 0.22);
+        }
+
+        .brief h3 {
+            margin: 0 0 1rem;
+            text-align: center;
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+        }
+
+        .brief h3::after {
+            content: "";
+            display: block;
+            width: 60%;
+            margin: 0.6rem auto 0;
+            border-bottom: 1px solid var(--ink);
+        }
+
+        .brief dl {
+            margin: 0;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            column-gap: 1.25rem;
+            row-gap: 0.45rem;
+        }
+
+        .brief dt {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--faded);
+            align-self: center;
+        }
+
+        .brief dd {
+            margin: 0;
+            text-align: right;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* ---------- Colophon ---------- */
+        .colophon {
+            padding: 1.1rem clamp(1rem, 4vw, 2rem) 1.6rem;
+            border-top: 1px solid var(--ink);
+            text-align: center;
+            font-size: 0.66rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--faded);
+        }
+
+        /* ---------- Mobile ---------- */
+        @media (max-width: 720px) {
+            .columns {
+                columns: 1;
+            }
+
+            .topnav {
+                gap: 0.5rem;
+                padding: 0.7rem 0.8rem;
+            }
+
+            .topnav a {
+                padding: 0.5rem 0.85rem;
+                font-size: 0.72rem;
+                letter-spacing: 0.12em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .masthead-top {
+                font-size: 0.6rem;
+                letter-spacing: 0.16em;
+            }
+
+            .masthead-sub {
+                letter-spacing: 0.24em;
+            }
+
+            .topnav {
+                justify-content: space-between;
+            }
+
+            .topnav a {
+                flex: 1 1 auto;
+                text-align: center;
+                padding: 0.5rem 0.4rem;
+                font-size: 0.68rem;
+                letter-spacing: 0.08em;
+            }
+
+            .brief dl {
+                grid-template-columns: 1fr;
+                row-gap: 0.15rem;
+            }
+
+            .brief dd {
+                text-align: left;
+                margin-top: 0.05rem;
+            }
+
+            .colophon {
+                letter-spacing: 0.14em;
+                line-height: 2;
+            }
         }
     </style>
 </head>
 
 <body>
-<div class="container">
-    <h1>Teemu Saha</h1>
-    <p>Data professional &mdash; engineering, science, and analysis.</p>
-    <div class="links">
+<div class="page">
+
+    <header class="masthead">
+        <div class="masthead-top">
+            <span>Vol. I &mdash; No. 1</span>
+            <span>Price: Negotiable</span>
+        </div>
+        <h1 class="masthead-title">Teemu Saha</h1>
+        <p class="masthead-sub">Cutting Edge in Software Engineering, AI and Business</p>
+    </header>
+
+    <nav class="topnav" aria-label="Main navigation">
         <a href="https://github.com/Tepes99">GitHub</a>
-        <a href="https://aaltodoc.aalto.fi/server/api/core/bitstreams/16fe675d-0aed-4d77-bbf1-a6d042209113/content">B.Sc Thesis</a>
+        <a href="https://aaltodoc.aalto.fi/server/api/core/bitstreams/16fe675d-0aed-4d77-bbf1-a6d042209113/content">B.Sc. Thesis</a>
         <a href="https://www.linkedin.com/in/teemu-saha-18090b19b/">LinkedIn</a>
-    </div>
+    </nav>
+
+    <main>
+        <article class="lead">
+            <h2 class="headline">AI Agents, But at Home</h2>
+            <p class="deck">No human typed a single character of this page. A Qwen model in a basement, two
+                Radeon GPUs, and a harness called pi &mdash; private, lock-in free, and a few cents of
+                electricity at a time.</p>
+        </article>
+
+        <section class="about" id="about" aria-labelledby="about-title">
+            <h3 class="section-title" id="about-title">About This Page</h3>
+            <div class="columns">
+                <p>This website was coded agentically &mdash; and entirely at home. The markup, the styles,
+                    and this very article were produced by an autonomous software agent rather than a human
+                    editor. The agent lives on a self-hosted NixOS home server, an always-on machine that does
+                    the thinking in the basement and the publishing without being asked. Nothing about the work
+                    crosses a network: the model, the code, and the words all stay on the shelf.</p>
+                <p>The engine is a containerized instance of vLLM, running the Qwen3.8 27B model quantized to
+                    FP8, split across a pair of AMD Radeon AI PRO R9700 GPUs &mdash; two cards, one model, both
+                    carrying their share of the compute in tensor parallelism. The agent works inside pi, the
+                    agentic coding harness, which handles the reading, the editing, the running, and the
+                    committing. The product of that labour is a plain static site, a handful of files with
+                    nothing else to install.</p>
+                <p>Because it runs locally, privacy is not a feature &mdash; it is a fact of the wiring. What
+                    the agent reads, writes, or thinks about never leaves the server. There is no telemetry, no
+                    prompt log on a third party's machines, and no data collection buried in a terms-of-service
+                    clause you never read.</p>
+                <p>There is no lock-in, either: open weights, open software, no API keys, no subscriptions, and
+                    no price revision to answer to. The metal was paid for up front; after that the marginal
+                    cost of a printed page is a few cents of electricity, flat and final. Publishing is just as
+                    automatic &mdash; a GitHub Actions workflow syncs the static site to an AWS S3 bucket on
+                    every push to the main branch, so this edition was set and printed the moment it was
+                    merged.</p>
+            </div>
+
+            <aside class="brief" aria-label="Specifications in brief">
+                <h3>In Brief</h3>
+                <dl>
+                    <dt>Written by</dt>
+                    <dd>Autonomous agent &mdash; pi agentic harness</dd>
+                    <dt>Model</dt>
+                    <dd>Qwen3.8 27B, quantized to FP8</dd>
+                    <dt>Inference</dt>
+                    <dd>Containerized vLLM</dd>
+                    <dt>Acceleration</dt>
+                    <dd>Dual AMD Radeon AI PRO R9700 (tensor parallel)</dd>
+                    <dt>Host</dt>
+                    <dd>Self-hosted NixOS home server</dd>
+                    <dt>Hosting</dt>
+                    <dd>AWS S3 static site</dd>
+                    <dt>Deployment</dt>
+                    <dd>GitHub Actions, on every push to main</dd>
+                </dl>
+            </aside>
+        </section>
+    </main>
+
+    <footer class="colophon">
+        &copy; 2026 Teemu Saha
+    </footer>
+
 </div>
 </body>
+
 </html>
