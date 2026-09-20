@@ -118,6 +118,69 @@
         .topnav a:focus-visible {
             background: var(--ink);
             color: var(--paper);
+
+        }
+        .topnav-dropdown {
+            position: relative;
+        }
+
+        .topnav-dropdown .dropdown-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45em;
+            padding: 0.55rem 1.2rem;
+            border: 1px solid var(--ink);
+            background: transparent;
+            color: var(--ink);
+            font-family: inherit;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.15s ease, color 0.15s ease;
+        }
+
+        .topnav-dropdown .dropdown-toggle:hover,
+        .topnav-dropdown .dropdown-toggle:focus-visible {
+            background: var(--ink);
+            color: var(--paper);
+        }
+
+        .topnav-dropdown .dropdown-caret {
+            display: inline-block;
+            transition: transform 0.15s ease;
+        }
+
+        .topnav-dropdown.open .dropdown-caret {
+            transform: rotate(180deg);
+        }
+
+        .topnav-dropdown .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            min-width: 12em;
+            visibility: hidden;
+            opacity: 0;
+            background: var(--paper);
+            border: 1px solid var(--ink);
+            box-shadow: 0 16px 32px -16px rgba(40, 30, 10, 0.5);
+            z-index: 20;
+            transition: opacity 0.15s ease, visibility 0.15s ease;
+        }
+
+        .topnav-dropdown.open .dropdown-menu {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .topnav-dropdown .dropdown-menu a {
+            display: block;
+            padding: 0.55rem 1.1rem;
+            border: none;
+            white-space: nowrap;
+            font-size: 0.72rem;
         }
 
         /* ---------- Lead ---------- */
@@ -277,10 +340,15 @@
                 padding: 0.7rem 0.8rem;
             }
 
-            .topnav a {
+            .topnav a,
+            .topnav-dropdown .dropdown-toggle {
                 padding: 0.5rem 0.85rem;
                 font-size: 0.72rem;
                 letter-spacing: 0.12em;
+            }
+
+            .topnav-dropdown .dropdown-menu {
+                left: -40%;
             }
         }
 
@@ -293,14 +361,11 @@
             .masthead-sub {
                 letter-spacing: 0.24em;
             }
-
-            .topnav {
-                justify-content: space-between;
-            }
-
-            .topnav a {
+            .topnav a,
+            .topnav-dropdown .dropdown-toggle {
                 flex: 1 1 auto;
                 text-align: center;
+                justify-content: center;
                 padding: 0.5rem 0.4rem;
                 font-size: 0.68rem;
                 letter-spacing: 0.08em;
@@ -340,6 +405,17 @@
         <a href="https://github.com/Tepes99">GitHub</a>
         <a href="https://aaltodoc.aalto.fi/server/api/core/bitstreams/16fe675d-0aed-4d77-bbf1-a6d042209113/content">B.Sc. Thesis</a>
         <a href="https://www.linkedin.com/in/teemu-saha-18090b19b/">LinkedIn</a>
+
+        <div class="topnav-dropdown">
+            <button type="button" class="dropdown-toggle"
+                    aria-expanded="false" aria-haspopup="true" aria-controls="apps-menu">
+                Apps
+                <span class="dropdown-caret" aria-hidden="true">&#9662;</span>
+            </button>
+            <div class="dropdown-menu" id="apps-menu">
+                <a href="https://decision-systems.apps.teemusaha.com/">Decision Systems</a>
+            </div>
+        </div>
     </nav>
 
     <main>
@@ -403,6 +479,39 @@
     </footer>
 
 </div>
+
+<script>
+    (function () {
+        var dropdowns = document.querySelectorAll('.topnav-dropdown');
+
+        dropdowns.forEach(function (dd) {
+            var toggle = dd.querySelector('.dropdown-toggle');
+
+            toggle.addEventListener('click', function (e) {
+                e.stopPropagation();
+                var open = dd.classList.toggle('open');
+                toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+            });
+
+            dd.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && dd.classList.contains('open')) {
+                    dd.classList.remove('open');
+                    toggle.setAttribute('aria-expanded', 'false');
+                    toggle.focus();
+                }
+            });
+        });
+
+        document.addEventListener('click', function (e) {
+            dropdowns.forEach(function (dd) {
+                if (!dd.contains(e.target)) {
+                    dd.classList.remove('open');
+                    dd.querySelector('.dropdown-toggle').setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+    })();
+</script>
 </body>
 
 </html>
