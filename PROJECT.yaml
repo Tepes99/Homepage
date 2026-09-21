@@ -1,0 +1,22 @@
+schema_version: 1
+
+project:
+  name: homepage
+  title: Teemu Saha Homepage
+  summary: Static personal homepage and portfolio for a data professional
+
+classification:
+  visibility: public
+  kind: application
+  stage: alpha
+  status: active
+  version: 0.1.0
+
+workspace:
+  groups: []
+  preferred_machines: []
+
+documentation:
+  entrypoint: index.html
+  architecture: index.html
+
